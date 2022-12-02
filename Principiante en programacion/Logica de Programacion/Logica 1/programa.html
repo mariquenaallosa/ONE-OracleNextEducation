@@ -4,16 +4,25 @@
 
 <script>
 
-    var anho = 2025;
+    function saltarlinea() {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+  var anho = 2025;
     var saltoLinea = "<br><br><br>";
 
 	document.write("Juan tiene: " + (anho-2000) + " años");
-	document.write(saltoLinea);
+
+    saltarlinea();
 
 	document.write("Pedro tiene: " + (anho-1995) + " años");
 
     anho=2030;
-	document.write(saltoLinea);
+
+    saltarlinea();
+
 
     document.write("Carlos tiene: " + (anho-2005) + " años");
 
