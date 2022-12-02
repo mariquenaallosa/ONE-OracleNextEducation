@@ -15,14 +15,17 @@
         saltarlinea();
     };
 
-    function calcularImc(peso,altura){
-        return Math.round(peso/(altura**2));
+    function calcularImc(peso, altura) {
+        return Math.round(peso / (altura ** 2));
     };
 
-   imprimir("El promedio del IMC de Cristian y Felipe es de: " + (calcularImc(71,1.72)+calcularImc(75,1.73))/2);
+    var nombre = prompt("Ingrese su nombre:")
+    var pesoInformado = parseInt(prompt(nombre + ", ingrese su peso en kg:"))
+    var alturaInformado = parseInt(prompt(nombre + ", ingrese su altura en metros:"));
 
-   imprimir("El promedio del IMC de Gabriela y Luisa es de: " + (calcularImc(65,1.68)+calcularImc(55,1.60))/2);
+    var imcCalculado = calcularImc(pesoInformado,alturaInformado);
+    
+    imprimir(nombre + ", su IMC calculado es: "+ imcCalculado)
 
 
-
-</script> 
+</script>
