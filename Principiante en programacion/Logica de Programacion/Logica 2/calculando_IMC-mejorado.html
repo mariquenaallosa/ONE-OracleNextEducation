@@ -18,27 +18,30 @@
     function calcularImc(peso, altura) {
         return Math.round(peso / (altura ** 2));
     };
-
+    // Declarar variables necesarias: nombre, peso y altura
     var nombre = prompt("Ingrese su nombre:");
     var pesoInformado = parseInt(prompt(nombre + ", ingrese su peso en kg:"));
     var alturaInformado = parseInt(prompt(nombre + ", ingrese su altura en metros:"));
 
-    var imcCalculado = calcularImc(pesoInformado,alturaInformado);
+    // Calcular IMC
+    var imcCalculado = calcularImc(pesoInformado, alturaInformado);
+
+    imprimir(nombre + ", su IMC calculado es: " + imcCalculado)
     
-    imprimir(nombre + ", su IMC calculado es: "+ imcCalculado)
-    if(imcCalculado < 18.5 ){
+    // Verificar a que grupo pertenece
+    if (imcCalculado < 18.5) {
         imprimir("Se encuentra dentro del grupo con insuficiencia ponderal")
     };
-    if (imcCalculado >= 18.5 && imcCalculado < 25){
+    if (imcCalculado >= 18.5 && imcCalculado < 25) {
         imprimir("Se encuentra dentro del grupo con intervalo normal")
-    }; 
-    if (imcCalculado >= 25 && imcCalculado < 30){
+    };
+    if (imcCalculado >= 25 && imcCalculado < 30) {
         imprimir("Se encuentra dentro del grupo con sobrepeso")
     };
-    if (imcCalculado >= 30){
+    if (imcCalculado >= 30) {
         imprimir("Se encuentra dentro del grupo con obesidad")
     };
-    
+
 
 
 </script>
