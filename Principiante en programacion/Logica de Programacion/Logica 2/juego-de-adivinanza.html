@@ -1,0 +1,27 @@
+<meta charset="UTF-8" />
+
+<h1>PROGRAMA - JUEGO DE ADIVINANZAS</h1>
+
+<script>
+
+    function saltarlinea() {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    };
+
+    function imprimir(frase) {
+        document.write(frase);
+        saltarlinea();
+    };
+
+    var numero = Math.round(Math.random()*10);
+    var numeroIngresado = parseInt(prompt("Ingrese un número del 1 al 10"));
+    console.log(numero);
+
+    if(numero != numeroIngresado) {
+        imprimir("Lo siento, el número pensado era "+numero+". Suerte para la próxima");
+    } else {
+        imprimir("¡Felicidades! Ha adivinado el número");
+    }
+</script>
