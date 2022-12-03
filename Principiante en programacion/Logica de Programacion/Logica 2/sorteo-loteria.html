@@ -1,0 +1,32 @@
+<meta charset="UTF-8" />
+
+<h1>PROGRAMA - SORTEO LOTERÍA</h1>
+
+<script>
+
+    function saltarlinea() {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    };
+
+    function imprimir(frase) {
+        document.write(frase);
+        saltarlinea();
+    };
+
+    function sortear(n){
+        return Math.round(Math.random()*n)
+    }
+
+    var n = parseInt(prompt("Ingrese un número límite"))
+    var numeroPensado =  sortear(n);
+    var numeroIngresado = parseInt(prompt("Ingrese un número del 1 al "+ n));
+    console.log(numeroPensado);
+
+    if(numeroPensado != numeroIngresado) {
+        imprimir("Lo siento, el número sorteado fue "+numeroPensado+". Suerte para la próxima");
+    } else {
+        imprimir("¡Felicidades! Ha adivinado el número");
+    }
+</script>
