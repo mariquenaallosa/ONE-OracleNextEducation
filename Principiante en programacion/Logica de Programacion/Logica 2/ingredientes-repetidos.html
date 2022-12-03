@@ -8,10 +8,22 @@
     var cantidad = parseInt(prompt("¿Cuántos ingredientes vas a añadir?"));
     var contador = 1;
 
-    while( contador <= cantidad) {
+    while (contador <= cantidad) {
         var ingrediente = prompt("Informe el ingrediente " + contador);
-        ingredientes.push(ingrediente);
-        contador++;
+        var encontrado = false;
+
+        // Buscar si el ingrediente ya se encuentra
+        for (i = 0; i < ingredientes.length; i++) {
+            if (ingrediente == ingredientes[i]) {
+                encontrado = true;
+                alert("El ingrediente ingresado ya se encuentra en la lista");
+            }
+        }
+        // Si no se encuentra, agregar
+        if (encontrado == false) {
+            ingredientes.push(ingrediente);
+            contador++;
+        }
     }
 
     console.log(ingredientes);
