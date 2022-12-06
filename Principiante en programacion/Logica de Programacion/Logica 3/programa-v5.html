@@ -1,0 +1,88 @@
+<canvas width="600" height="500">
+
+</canvas>
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0, 0, 600, 500);
+
+
+    var radio = 10;
+
+
+    function disenarCircuferencia(x, y, radio, color) {
+
+        pincel.fillStyle = color;
+        pincel.beginPath();
+        pincel.arc(x, y, radio, 0, 2 * Math.PI);
+        pincel.fill();
+
+    }
+
+    function limpiarPantalla() {
+
+        pincel.clearRect(0, 0, 600, 500);
+
+    }
+
+    var x = 10;
+
+    function disenarObejtivo(x, y) {
+
+        disenarCircuferencia(x, y, radio + 20, "blue");
+        disenarCircuferencia(x, y, radio + 10, "white");
+        disenarCircuferencia(x, y, radio, "red");
+
+    }
+
+    function sortearPosicion(maximo) {
+
+        return Math.floor(Math.random() * maximo);
+
+    }
+
+    var xRandom = sortearPosicion(600);
+    var yRandom = sortearPosicion(500);
+
+    function actualizarPantalla() {
+
+        limpiarPantalla();
+        xRandom = sortearPosicion(600);
+        yRandom = sortearPosicion(500);
+        disenarObejtivo(xRandom, yRandom);
+
+    }
+
+
+
+
+    setInterval(actualizarPantalla, 1400);
+
+
+    function disparar(evento) {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+
+
+        if ((x < xRandom + radio) &&
+            (x > xRandom - radio) &&
+            (y < yRandom + radio) &&
+            (y > yRandom - radio)) {
+
+            alert("El tiro fue certero")
+
+        } else {
+            console.log("Mal");
+        }
+
+
+    }
+
+    pantalla.onclick = disparar;
+
+
+
+
+</script>
