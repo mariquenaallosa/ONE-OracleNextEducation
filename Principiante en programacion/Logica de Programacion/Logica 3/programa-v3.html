@@ -9,11 +9,27 @@
     pincel.fillRect(0, 0, 600, 500);
 
     function exibirAlerta(evento) {
-        console.log(evento.x);
-        alert("usted hizo un click");
+        // pageX y pageY son las coordenadas de la pantalla completa , para pder sacar realmente la posicion en canvas hago una diferencia
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+        console.log(x + "," + y);
+        
     };
 
-    pantalla.onclick = exibirAlerta;
+    function dibujarCirculo(evento) {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        pincel.arc(x,y,10,0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + "," + y);
+    }
+    // pantalla.onclick = exibirAlerta;
+
+    pantalla.onclick = dibujarCirculo;
+
+
 
 
 
